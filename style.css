@@ -1,0 +1,71 @@
+:root {
+  --bg: #fafafa;
+  --text: #1a1a1a;
+  --accent: #3eb489;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Safe-area aware: keep content clear of notches / home indicator */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 1.5rem 1rem 0.75rem;
+}
+
+/* The single small highlight allowed besides the AR button */
+.title .accent {
+  color: var(--accent);
+}
+
+model-viewer {
+  flex: 1;
+  width: 100%;
+  background: var(--bg);
+  --poster-color: transparent;
+}
+
+/* Mint-green pill AR button, no default browser chrome, thumb-friendly,
+   lifted above the home indicator on phones. */
+model-viewer::part(default-ar-button) {
+  position: absolute;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.75rem;
+
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  box-shadow: none;
+  cursor: pointer;
+}

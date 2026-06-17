@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>AR Viewer</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <h1 class="title">View in your space<span class="accent">.</span></h1>
+
+    <model-viewer
+      src="/models/model.glb"
+      ios-src="/models/model.usdz"
+      alt="A 3D model you can rotate, zoom, and place in your room with augmented reality"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      ar-placement="floor"
+      ar-scale="auto"
+      camera-controls
+      auto-rotate
+      shadow-intensity="1"
+      poster="/models/poster.webp"
+    ></model-viewer>
+  </body>
+</html>
